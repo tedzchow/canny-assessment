@@ -5,10 +5,10 @@ export default function sortBy(array, key, descending = false) {
   } else if (length === 2) {
     const aValue = array[0][key];
     const bValue = array[1][key];
-    if (bValue > aValue) {
-      return array;
+    if (aValue > bValue) {
+      array = [array[1], array[0]];
     }
-    return [array[0], array[1]];
+    return descending ? array.reverse() : array;
   }
 
   const mid = Math.floor(length / 2);
